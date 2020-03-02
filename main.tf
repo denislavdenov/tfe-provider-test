@@ -1,14 +1,8 @@
-module "randomname" {
-  source  = "app.terraform.io/ddenov/randomname/local"
-  version = "0.0.3"
+resource "random_pet" "names" {
+  length    = "4"
+  separator = "-"
 }
 
-module "randomname1" {
-  source  = "app.terraform.io/ddenov/randomname/local"
-  version = "0.0.3"
-}
-
-module "randomname2" {
-  source  = "app.terraform.io/ddenov/randomname/local"
-  version = "0.0.3"
+output "instance_id" {
+  value = "${random_pet.names.id}"
 }
